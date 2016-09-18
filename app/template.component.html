@@ -1,0 +1,76 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-6">
+            <h2>Please input URLs and DATA for parsing....</h2>
+
+            <input class="form-control inp extramargin" type="text"  #box1
+                (keyup.enter)="inpURL1=box1.value; inputURL1(box1.value)" 
+                (blur)="inpURL1=box1.value; inputURL1(box1.value)" 
+                placeholder="http://youdomain1.xxx">
+            <p><strong>URL#1</strong>, you input: {{inpURL1}}</p>
+
+            <input class="form-control inp" type="text"  #box2
+                (keyup.enter)="inpURL2=box2.value; inputURL2(box2.value)" 
+                (blur)="inpURL2=box2.value; inputURL2(box2.value)" 
+                placeholder="http://youdomain2.xxx">
+            <p><strong>URL#2</strong>, you input: {{inpURL2}}</p>
+            
+            <input class="form-control inp" type="text"  #box3
+                (keyup.enter)="inpURL3=box3.value; inputURL3(box3.value)" 
+                (blur)="inpURL3=box3.value; inputURL3(box3.value)" 
+                placeholder="http://youdomain3.xxx">
+            <p><strong>URL#3</strong>, you input: {{inpURL3}}</p>
+
+            <input class="form-control inp" type="text"  #box4
+                (keyup.enter)="inpURL4=box4.value; inputURL4(box4.value)" 
+                (blur)="inpURL4=box4.value; inputURL4(box4.value)" 
+                placeholder="http://youdomain4.xxx">
+            <p><strong>URL#4</strong>, you input: {{inpURL4}}</p>
+
+            <input class="form-control inp" type="text"  #box5
+                (keyup.enter)="inpURL5=box5.value; inputURL5(box5.value)" 
+                (blur)="inpURL5=box5.value; inputURL5(box5.value)" 
+                placeholder="http://youdomain5.xxx">
+            <p><strong>URL#5</strong>, you input: {{inpURL5}}</p>  
+
+             <input class="form-control inpdata" type="datetime-local"  #box6
+                (keyup.enter)="inpURL6=box6.value; inputDateTime(box6.value)" 
+                (blur)="inpURL6=box6.value; inputDateTime(box6.value)" >
+            <p><strong>Parsing data and time</strong>, you input: {{inDateTime}}</p>
+
+                <h3><i>and click the button if are you ready</i></h3>
+                <div class="row extramargin">
+                    <div class="col-lg-4">
+                        <button class="btn btn-primary"(click)="onClickQueue()">Add URLs</button>
+                    </div>
+                    <div class="col-lg-4">
+                        <button class="btn btn-success"(click)="onClickSchedule()">Shedule parsing</button>
+                    </div> 
+                    <div class="col-lg-4">
+                        <a class="btn btn-success" href="http://127.0.0.1:8000/list/" >Show results</a>
+                    </div>
+                </div>
+                <div class="row extramargin">
+                    <div class="col-lg-4">
+                        <button class="btn btn-success"(click)="onClickStart()">Start parsing</button>
+                    </div>   
+                    <div class="col-lg-4">
+                        <button class="btn btn-danger"(click)="onClickCancel()">Stop parsing</button>
+                    </div>
+                    <div class="col-lg-4">
+                        
+                    </div>
+                </div>   
+           <!-- <div class="error" *ngIf="errorMessage">{{errorMessage}}</div> -->
+        </div>
+        <div class="col-lg-6">
+            <h3>Stat messages:</h3>
+            <ul class="list-unstyled" >
+                <li *ngFor="let statMsg of statusList">
+                        {{statMsg.parsingURL}}, {{statMsg.msg }}
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+

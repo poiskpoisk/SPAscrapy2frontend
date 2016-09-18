@@ -1,0 +1,7 @@
+.inp {
+width: 400px; /* Ширина поля в пикселах */
+}
+.inpdata {
+width: 200px; /* Ширина поля в пикселах */
+}
+.extramargin { margin-top:20px; }
