@@ -1,17 +1,16 @@
 FROM ubuntu:latest
 RUN apt-get update && apt-get install --yes \
-     python3-pip \
-     python3 \
+     nodejs-legacy \
+     npm \
      git
 
-RUN pip3 install --upgrade pip
-RUN rm /bin/sh && ln -s /bin/bash /bin/sh
-RUN pip install django
-RUN pip install djangorestframework
-RUN pip install django-cors-middleware 
-RUN pip install lxml
-RUN git clone https://github.com/poiskpoisk/testjob2backend
-ENV DJANGO_SETTINGS_MODULE testjob2.settings
+RUN git clone https://github.com/poiskpoisk/testjob2frontend
+RUN chmod -R 777 testjob2frontend
+WORKDIR testjob2frontend
+RUN npm install
+EXPOSE 3000
 EXPOSE 8000
-WORKDIR testjob2backend
-CMD python3 manage.py runserver 0.0.0.0:8000
+EXPOSE 443
+EXPOSE 80
+CMD npm start
+
